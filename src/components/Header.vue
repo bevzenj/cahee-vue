@@ -1,0 +1,156 @@
+<template>
+<header class="header">
+    <div class="container">
+        <div class="header-logo">
+            <h3 class="header-logo__title">
+                Cahee
+            </h3>
+        </div>
+        <nav>
+            <button id="menu" class="nav-list__btn">&#9776;</button>
+            <ul class="nav-list" id="nav-menu">
+                <li class="nav-list__item">
+                    <a class="nav-list__link" href="#intro">Home</a>
+                </li>
+                <li class="nav-list__item">
+                    <a class="nav-list__link" href="#about">About</a>
+                </li>
+                <li class="nav-list__item">
+                    <a class="nav-list__link" href="#services">Services</a>
+                </li>
+                <li class="nav-list__item">
+                    <a class="nav-list__link" href="#gallery">Gallery</a>
+                </li>
+                <li class="nav-list__item">
+                    <a class="nav-list__link" href="#blog">Blog</a>
+                </li>
+                <li class="nav-list__item">
+                    <a class="nav-list__link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+</template>
+
+<script>
+
+export default {
+  name: 'Header',
+};
+</script>
+
+<style lang="scss">
+.header {
+    background: #f9f8fb;
+    padding-top: 45px;
+    color: #262626;
+
+    .container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-logo__title {
+        font-family: 'pacificoregular', sans-serif;
+        font-weight: 400;
+        font-size: 50px;
+    }
+
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+
+    &__item {
+        font-family: 'ralewaybold', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-left: 35px;
+        position: relative;
+
+        &::after {
+            content: "";
+            background: #ff6033;
+            width: 0%;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: -5px;
+            transition-duration: 0.5s;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            color: inherit;
+        }
+    }
+
+    &__btn {
+        display: none;
+        border: none;
+        font-size: 30px;
+        background: #5585a2;
+        color: #ffffff;
+        text-align: right;
+        box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+    }
+}
+@media screen and (max-width: 960px) {
+    .nav-list {
+        display: none;
+
+        &__item {
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+
+            &::after {
+                display: none;
+            }
+
+            &:hover {
+                background: #ff6033;
+                transition-duration: 0.5s;
+            }
+        }
+
+        &__btn {
+            display: block;
+            position: fixed;
+            right: 100px;
+            top: 45px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .nav-list__btn {
+        right: 0;
+    }
+}
+.active {
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 100px;
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    background: #f9f8fb;
+}
+</style>
